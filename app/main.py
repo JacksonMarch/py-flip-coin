@@ -20,18 +20,31 @@ def flip_coin() -> dict:
 def draw_gaussian_distribution_graph() -> None:
     data = flip_coin()
 
-    x = list(data.keys())
-    y = list(data.values())
+    heads_count = list(data.keys())
+    percentages = list(data.values())
 
     plt.figure(figsize=(10, 6))
-    plt.plot(x, y, color='red', linewidth=2, marker='o', label='Траєкторія результатів')
-    plt.bar(x, y, color='skyblue', alpha=0.3, label='Експериментальні дані')
+    plt.plot(
+        heads_count,
+        percentages,
+        color="red",
+        linewidth=2,
+        marker="o",
+        label="Траєкторія результатів"
+    )
+    plt.bar(
+        heads_count,
+        percentages,
+        color="skyblue",
+        alpha=0.3,
+        label="Експериментальні дані"
+    )
     plt.title("Gaussian distribution graph")
     plt.xlabel("Кількість випадань 'Орла'")
     plt.ylabel("Відсоток (%)")
     plt.xticks(range(11))
     plt.legend()
-    plt.grid(axis='y', alpha=0.3)
+    plt.grid(axis="y", alpha=0.3)
 
     plt.show()
 
